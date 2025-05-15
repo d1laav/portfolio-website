@@ -7,10 +7,10 @@ export const HeroSection = () => {
         <section id="hero" className="relative min-h-screen flex items-center">
             <div className="container z-10 flex flex-col md:flex-row justify-between items-center">
                 {/* Right pages */}
-                <div className="space-y-4 w-fit text-left">
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                <div className="space-y-4 w-fit">
+                    <h1 className="text-center text-5xl font-bold tracking-tight ">
                         <span className="opacity-0 animate-fade-in">Hello, I'm</span>
-                        <span className="text-primary opacity-0 animate-fade-in-delay-2"> {" "} David</span>
+                        <span className="text-primary opacity-0 animate-fade-in-delay-2">{" "} David</span>
                         <span className="opacity-0 animate-fade-in-delay-2"> Immanuel</span>
                     </h1>
 
@@ -20,6 +20,7 @@ export const HeroSection = () => {
                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
                         sunt in culpa qui officia deserunt mollit anim id est laborum."
                     </p>
+
                     <CVButton />
                 </div>
                 {/* Left pages */}
