@@ -33,7 +33,7 @@ export const ThemeToggle = () => {
         }
     }
     return (
-        <div className={cn("fixed max-sm:hidden top-2.5 right-4 z-50 p-3 rounded-full transition-colors duration-300",
+        <div className={cn("fixed max-sm:hidden top-1.5 right-4 z-50 p-4 rounded-full transition-colors duration-300",
         "focus:outline-hidden"
         )}>
             <div className="relative inline-block w-8 h-6 ">
