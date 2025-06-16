@@ -2,6 +2,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Navbar } from "../components/Navbar";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
+import { SkillsSection } from "../components/SkillsSection";
 
 export const Home = () => {
 
@@ -21,6 +22,7 @@ export const Home = () => {
         <main>
             <HeroSection />
             <AboutSection />
+            <SkillsSection />
             {/* Add more sections here */}
         </main>
 

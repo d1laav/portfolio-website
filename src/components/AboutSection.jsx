@@ -1,4 +1,6 @@
 import CV from "@/assets/CV_David_Immanuel_Resner.pdf";
+import { Code, CodeXml, TabletSmartphone } from "lucide-react";
+
 export const AboutSection = () => {
     return (
         <section id="about" className="py-24 px-4 relative">
@@ -18,9 +20,7 @@ export const AboutSection = () => {
                             and developed features like user login, dashboards, and admin panels.
                         </p>
                         <p className="text-muted-foreground">
-                            I use Jetpack Compose to build modern Android App and clean user interfaces. 
-                            I’ve created apps with navigation, data integration, and interactive layouts 
-                            using Compose.
+                        
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -34,8 +34,39 @@ export const AboutSection = () => {
                             </a>
                         </div>
                     </div>
-
-                </div>
+                    <div className="grid grid-cols-1 gap-4">
+                        <div className="gradient-border p-6 card-hover">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <TabletSmartphone className="h-5 w-5 text-primary" />
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="text-semibold text-lg">Mobile Development</h4>
+                                    <p className="text-muted-foreground text-base">
+                                        Creating mobile apps using Jetpack Compose 
+                                        to get modern & Compact UI, and using Firebase 
+                                        to handle authentication, database, and storage.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="gradient-border p-6 card-hover mt-2">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <CodeXml className="h-4 w-4 text-primary" />
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="text-semibold text-lg">Web Development</h4>
+                                    <p className="text-muted-foreground text-base">
+                                        I develop websites using modern frameworks such as 
+                                        React and Laravel to achieve contemporary user interfaces
+                                        and implement unique, efficient data integration features.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
             </div>
         </section>
     );

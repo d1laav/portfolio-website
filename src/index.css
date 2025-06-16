@@ -64,7 +64,7 @@
 @layer base {
   :root {
     --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --card: 216 11% 18%;
 
     --card: 0 0% 100%;
 
@@ -78,12 +78,13 @@
     --background: 216 11% 15%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
+    --card: 216 11% 18%;
+
 
     --primary: 19, 34%, 40%;
     --primary-foreground: 210 40% 98%;
 
-    --border: 222 47% 12%;
+    -border: 220 5% 18%;    
   }
 
   * {
@@ -137,14 +138,14 @@
   border: 1px solid transparent;
 }
 
-/* @layer utilities {
+@layer utilities {
   .gradient-border {
     @apply relative rounded-md;
     background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
     background-clip: padding-box;
     border: 1px solid transparent;
   }
-} */
+}
 
 @utility cos-button {
   @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
