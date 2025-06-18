@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, XIcon } from "lucide-react";
+import { ExternalLink, Github, XIcon, ArrowRight } from "lucide-react";
+import GitHubButton from "@/components/GithubButton";
 
 const projects = [
   {
@@ -75,6 +76,13 @@ export const ProjectSection = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center mt-12">
+          <div className="text-center mt-12">
+            <a className="w-fit flex items-center mx-auto gap-2">
+              <GitHubButton />
+            </a>
+          </div>
         </div>
       </div>
 

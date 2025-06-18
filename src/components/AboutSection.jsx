@@ -16,8 +16,8 @@ export const AboutSection = () => {
                         </h3>
                         <p className="text-muted-foreground">
                             I have experience working on both front-end and back-end web projects. 
-                            I’ve built responsive, accessible websites, handled API integrations, 
-                            and developed features like user login, dashboards, and admin panels.
+                            I’ve built responsive, accessible websites, and developed features like user login, 
+                            dashboards, and admin panels.
                         </p>
                         <p className="text-muted-foreground">
                         
@@ -41,7 +41,7 @@ export const AboutSection = () => {
                                     <TabletSmartphone className="h-5 w-5 text-primary" />
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="text-semibold text-lg">Mobile Development</h4>
+                                    <h4 className="font-semibold text-lg">Mobile Development</h4>
                                     <p className="text-muted-foreground text-base">
                                         Creating mobile apps using Jetpack Compose 
                                         to get modern & Compact UI, and using Firebase 
@@ -56,7 +56,7 @@ export const AboutSection = () => {
                                     <CodeXml className="h-4 w-4 text-primary" />
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="text-semibold text-lg">Web Development</h4>
+                                    <h4 className="font-semibold text-lg">Web Development</h4>
                                     <p className="text-muted-foreground text-base">
                                         I develop websites using modern frameworks such as 
                                         React and Laravel to achieve contemporary user interfaces

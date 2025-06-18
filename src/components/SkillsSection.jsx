@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { cn } from '@/lib/utils';
-import { Repeat } from 'lucide-react';
+import { ArrowRight, Repeat } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const categories = ['all', 'frontend', 'backend', 'mobile', 'tools'];
@@ -97,6 +97,7 @@ export const SkillsSection = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+
     </section>
   );
 };
