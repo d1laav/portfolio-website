@@ -1,0 +1,67 @@
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.ToastRoot {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 320px;
+  will-change: transform, opacity;
+  transition: all 200ms ease-in;
+}
+.ToastTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111; /* ✅ tambahkan ini untuk teks gelap */
+  margin-bottom: 0.25rem;
+}
+
+.ToastDescription {
+  font-size: 0.875rem;
+  color: #666;
+}
+.ToastAction button {
+  background: #22c55e;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  margin-left: 1rem;
+}
+.ToastViewport {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+}
+
+/* Animasi saat toast muncul */
+.ToastRoot[data-state="open"] {
+  animation: slideIn 300ms ease-in forwards;
+}
+
+/* Animasi saat toast ditutup */
+.ToastRoot[data-state="closed"] {
+  animation: slideOut 200ms ease-in forwards;
+}
+
