@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import * as Toast from "@radix-ui/react-toast";
-import "@/components/ui/toasterStyles.css"; // pastikan ini ada dan path benar
+import "@/components/ui/toasterStyles.css";
 
 export const ContactSection = () => {
   const [open, setOpen] = useState(false);
@@ -15,13 +15,12 @@ export const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setOpen(false);
     clearTimeout(timerRef.current);
     timerRef.current = window.setTimeout(() => {
       eventDateRef.current = new Date();
       setOpen(true);
-    }, 1000);
+    }, 100);
   };
 
   return (
@@ -39,44 +38,40 @@ export const ContactSection = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* LEFT */}
+              {/* Left */}
               <div className="space-y-8">
-                <h3 className="text-2xl font-semibold mb-6">
-                  Contact Information
-                </h3>
+                <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
                 <div className="space-y-6 justify-center">
+                  {/* Email */}
                   <div className="flex items-start space-x-4">
                     <div className="p-3 rounded-full bg-primary/10">
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
-                    <div>
+                    <div className="ml-10">
                       <h4>Email</h4>
-                      <a
-                        href="mailto:davidimmanuel.network@gmail.com"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
+                      <a href="mailto:davidimmanuel.network@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                         davidimmanuel.network@gmail.com
                       </a>
                     </div>
                   </div>
-
+                  {/* Phone */}
                   <div className="flex items-start space-x-4">
                     <div className="p-3 rounded-full bg-primary/10">
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
-                    <div>
+                    <div className="ml-26">
                       <h4>Phone</h4>
                       <a className="text-muted-foreground hover:text-primary transition-colors">
                         +62 81513958120
                       </a>
                     </div>
                   </div>
-
+                  {/* Location */}
                   <div className="flex items-start space-x-4">
                     <div className="p-3 rounded-full bg-primary/10">
                       <MapPin className="h-6 w-6 text-primary" />
                     </div>
-                    <div>
+                    <div className="ml-10">
                       <h4>Location</h4>
                       <a className="text-muted-foreground hover:text-primary transition-colors">
                         South Tangerang, Banten, Indonesia
@@ -94,52 +89,23 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              {/* RIGHT */}
+              {/* Right */}
               <div className="bg-card p-10 rounded-lg shadow-xs">
                 <h3 className="text-2xl font-semibold mb-4">Send a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="David Immanuel..."
-                    />
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary" placeholder="David Immanuel..." />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="john@gmail.com"
-                    />
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary" placeholder="john@gmail.com" />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                      placeholder="Hello, I'm interested in collaborating on a project..."
-                    />
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
+                    <textarea id="message" name="message" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none" placeholder="Hello, I'm interested in collaborating on a project..." />
                   </div>
-                  <button
-                    type="submit"
-                    className={cn("cos-button w-full flex items-center justify-center gap-2")}
-                  >
+                  <button type="submit" className={cn("cos-button w-full flex items-center justify-center gap-2")}>
                     Send Message
                     <Send size={16} />
                   </button>
@@ -149,20 +115,12 @@ export const ContactSection = () => {
           </div>
         </section>
 
-        {/* TOAST DILETAKKAN DI LUAR SECTION */}
+        {/* Toast Notification */}
         <Toast.Root open={open} onOpenChange={setOpen} className="ToastRoot">
           <Toast.Title className="ToastTitle">Message Sent</Toast.Title>
-          <Toast.Description asChild>
-            <time
-              className="ToastDescription"
-              dateTime={eventDateRef.current.toISOString()}
-            >
-              {formatDate(eventDateRef.current)}
-            </time>
+          <Toast.Description className="ToastDescription">
+            Thank you for your message! I’ll get back to you shortly.
           </Toast.Description>
-          <Toast.Action className="ToastAction" asChild altText="Undo send">
-            <button className="Button small green">Undo</button>
-          </Toast.Action>
         </Toast.Root>
         <Toast.Viewport className="ToastViewport" />
       </>
