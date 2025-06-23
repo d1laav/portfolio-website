@@ -82,9 +82,21 @@ export const ContactSection = () => {
                   <div className="pt-8">
                     <h4 className="font-medium mb-4">Connect With Me</h4>
                     <div className="flex space-x-4 justify-center">
-                      <a href="#"><Linkedin /></a>
-                      <a href="#"><Instagram /></a>
+                       <a
+                            href="https://www.linkedin.com/in/david-immanuel-resner/"
+                            className="p-2 rounded-full border border-transparent hover:border-[#0072b1] hover:ring-2 hover:ring-[#0072b1]/50 transition-all duration-300"
+                            >
+                            <Linkedin className="w-5 h-5" style={{ color: "#0072b1" }} />
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/dimmanuel_/"
+                            className="p-2 rounded-full border border-transparent hover:border-[#dd2a7b] hover:ring-2 hover:ring-pink-500/50 transition-all duration-300"
+                        >
+                            <Instagram className="w-5 h-5" style={{ color: "#dd2a7b"}} />
+                        </a>
                     </div>
+
                   </div>
                 </div>
               </div>
