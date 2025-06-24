@@ -8,6 +8,7 @@ import { ContactSection } from "../components/ContactSection";
 import { OrganizationSection } from "../components/OrganizationSection";
 import { SectionTransition } from "../components/SectionTransition";
 import ScrollProgressBar from "../components/ScrollProgressBar";
+import BackToTopButton from "../components/BackToTopButton";
 
 export const Home = () => {
 
@@ -19,7 +20,7 @@ export const Home = () => {
         <ScrollProgressBar />
 
         {/* Theme Toggle */}
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
 
         {/* Navigation Bar */}
         <Navbar />
@@ -41,7 +42,10 @@ export const Home = () => {
             <SectionTransition from="moss" to="linen" />
             <ContactSection />
             </main>
-      </div>
+        </div>
+
+        {/* Back to Top Button */}
+        <BackToTopButton />
 
         {/* Footer */}
     </div>
