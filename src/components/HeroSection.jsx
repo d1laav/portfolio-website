@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useTransition, animated } from "@react-spring/web";
 import Lottie from "lottie-react";
 import HeroAnimation from "@/assets/HeroAnimation.json";
 import ProjectButton from "@/components/ProjectButton.jsx";
 import { ArrowDown } from "lucide-react";
-import { useTransition, animated } from "@react-spring/web";
 
 export const HeroSection = () => {
   const items = [
@@ -20,36 +20,42 @@ export const HeroSection = () => {
     from: { opacity: 0, transform: "translateY(10px)" },
     enter: { opacity: 1, transform: "translateY(0px)" },
     leave: { opacity: 0, transform: "translateY(-10px)" },
-    config: { tension: 200, friction: 20 },
+    config: { tension: 170, friction: 20 },
   });
 
-  const reset = useCallback(() => {
+  const animateLoop = () => {
     ref.current.forEach(clearTimeout);
     ref.current = [];
     setVisibleItems([]);
+
     items.forEach((item, i) => {
       ref.current.push(
         setTimeout(() => {
           setVisibleItems(prev => [...prev, item]);
-        }, i * 500)
+        }, i * 400)
       );
     });
-  }, []);
+
+    // Reset after all items visible
+    ref.current.push(
+      setTimeout(() => {
+        setVisibleItems([]);
+        animateLoop(); // Loop again
+      }, items.length * 400 + 8000) // Delay before reset
+    );
+  };
 
   useEffect(() => {
-    reset();
+    animateLoop();
     return () => ref.current.forEach(clearTimeout);
-  }, [reset]);
+  }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center">
+    <section id="hero" className="bg-hero relative min-h-screen flex items-center">
       <div className="container z-10 flex flex-col md:flex-row justify-between items-center">
         {/* Left Side */}
         <div className="space-y-4 w-fit">
-          <p
-            onClick={reset}
-            className="justify-start text-4xl md:text-6xl mx-auto text-center font-bold tracking-tight cursor-pointer"
-          >
+          <p className="justify-start text-4xl md:text-6xl mx-auto text-center font-bold tracking-tight">
             {transitions((style, item) => (
               <animated.span key={item.id} style={style} className={item.className}>
                 {item.text}
@@ -66,7 +72,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Side - Hero animation */}
+        {/* Right Side */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <div className="max-w-lg w-full">
             <Lottie

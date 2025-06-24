@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Icon } from "@iconify/react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, XIcon, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, XIcon } from "lucide-react";
 import GitHubButton from "@/components/GithubButton";
+import ProjectCard3D from "@/components/ProjectCard3D";
 
 const projects = [
   {
     id: 1,
     title: "TV On Air 9.0 Website",
-    description: "A informative website to inform users about the session TV On Air 9.0 event.",
+    description: "An informative website to inform users about the session TV On Air 9.0 event.",
     images: ["/projects/project1.1.png", "/projects/project1.2.png", "/projects/project1.3.png"],
     tags: ["React", "Tailwind CSS"],
     github: "https://github.com/d1laav/tvonair-9.0",
@@ -17,7 +17,7 @@ const projects = [
   {
     id: 2,
     title: "UMN TV Updating Website",
-    description: "A website to display the current programs & update the latest article from UMN TV.",
+    description: "A website to display current programs & latest articles from UMN TV.",
     images: ["/projects/project2.1.png", "/projects/project2.2.png", "/projects/project2.3.png"],
     tags: ["Laravel", "Bootstrap", "Tailwind CSS", "JavaScript", "MySQL"],
     github: "#",
@@ -26,7 +26,7 @@ const projects = [
   {
     id: 3,
     title: "Memoir App - personal diary",
-    description: "A personal diary app that allows users to write and save their daily experiences.",
+    description: "A diary app that allows users to write and save their daily experiences.",
     images: ["/projects/project3.1.png", "/projects/project3.2.png", "/projects/project3.3.png", "/projects/project3.4.png"],
     tags: ["Android", "Kotlin", "Jetpack Compose", "Firebase"],
     github: "https://github.com/d1laav/Memoir_App",
@@ -36,10 +36,9 @@ const projects = [
 
 export const ProjectSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="projects" className="py-52 px-4 relative z-10">
+    <section id="projects" className="bg-projects py-52 px-4 relative z-10">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Featured <span className="text-primary">Projects</span>
@@ -51,42 +50,20 @@ export const ProjectSection = () => {
           user experiences.
         </p>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {projects.map((project) => (
-            <div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer rounded-lg overflow-hidden bg-card shadow-md hover:shadow-xl transform transition-transform duration-300 hover:scale-[1.05]"
-            >
-              {/* Image */}
-              <div className="w-full h-40 bg-muted overflow-hidden">
-                <img
-                  src={project.images[0]}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500"
-                />
-              </div>
-
-              {/* Title */}
-              <div className="p-4">
-                <h3 className="text-md font-semibold text-center text-foreground transition-colors duration-300">
-                  {project.title}
-                </h3>
-              </div>
-            </div>
+            <ProjectCard3D key={project.id} project={project} onClick={setSelectedProject} />
           ))}
         </div>
+
         <div className="text-center mt-12">
-          <div className="text-center mt-12">
-            <a className="w-fit flex items-center mx-auto gap-2">
-              <GitHubButton />
-            </a>
-          </div>
+          <a className="w-fit flex items-center mx-auto gap-2">
+            <GitHubButton />
+          </a>
         </div>
       </div>
 
-      {/* Pop-Up */}
+      {/* Modal Pop-up */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -104,7 +81,7 @@ export const ProjectSection = () => {
               exit={{ y: 100, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button (tetap di kanan atas) */}
+              {/* Tombol close */}
               <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 z-50 text-white bg-black/60 hover:bg-black/80 p-2 rounded-full"
@@ -112,18 +89,13 @@ export const ProjectSection = () => {
                 <XIcon className="w-5 h-5" />
               </button>
 
-              {/* Image Carousel Infinite Scroll */}
+              {/* Carousel */}
               <div className="relative w-full overflow-hidden bg-muted py-6 px-2">
                 <motion.div
                   className="flex gap-6 w-max"
-                  animate={{ x: ['0%', '-50%'] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 20,
-                    ease: "linear"
-                  }}
+                  animate={{ x: ["0%", "-50%"] }}
+                  transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
                 >
-                  {/* Duplicate image array for smooth infinite effect */}
                   {[...selectedProject.images, ...selectedProject.images].map((img, i) => (
                     <img
                       key={i}
@@ -135,7 +107,7 @@ export const ProjectSection = () => {
                 </motion.div>
               </div>
 
-              {/* Content */}
+              {/* Info */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{selectedProject.title}</h3>
                 <p className="text-muted-foreground mb-4">{selectedProject.description}</p>
@@ -148,22 +120,12 @@ export const ProjectSection = () => {
                 </div>
                 <div className="flex space-x-4 items-center">
                   {selectedProject.link !== "#" && (
-                    <a
-                      href={selectedProject.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
+                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       <ExternalLink />
                     </a>
                   )}
                   {selectedProject.github !== "#" && (
-                    <a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
+                    <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       <Github />
                     </a>
                   )}

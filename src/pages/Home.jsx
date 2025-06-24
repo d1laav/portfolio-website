@@ -6,6 +6,7 @@ import { SkillsSection } from "../components/SkillsSection";
 import { ProjectSection } from "../components/ProjectSection";
 import { ContactSection } from "../components/ContactSection";
 import { OrganizationSection } from "../components/OrganizationSection";
+import { SectionTransition } from "../components/SectionTransition";
 
 export const Home = () => {
 
@@ -24,10 +25,15 @@ export const Home = () => {
         {/* Main Content */}
         <main>
             <HeroSection />
+            <SectionTransition from="tan" to="sage" />
             <AboutSection />
+            <SectionTransition from="sage" to="sand" />
             <SkillsSection />
+            <SectionTransition from="sand" to="clay" />
             <ProjectSection />
+            <SectionTransition from="clay" to="moss" />
             <OrganizationSection />
+            <SectionTransition from="moss" to="linen" />
             <ContactSection />
             {/* Add more sections here */}
         </main>

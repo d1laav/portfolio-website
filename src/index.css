@@ -63,29 +63,45 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --card: 216 11% 18%;
-
-    --card: 0 0% 100%;
+    --background: 34 44% 87%;
+    --foreground: 210 40% 10%;
+    --card: 30 30% 96%;
 
     --primary: 19, 34%, 40%;
     --primary-foreground: 210 40% 98%;
 
     --border: 210 40% 95%;
+
+    /* color per section */
+    --tan: 34 44% 87%;
+    --sage: 147 15% 85%;
+    --clay: 22 25% 92%;
+    --sand: 42 35% 90%;
+    --moss: 76 30% 85%;
+    --linen: 30 30% 95%;
   }
 
   .dark {
-    --background: 216 11% 15%;
+    --background: 34 20% 12%;
     --foreground: 210 40% 98%;
 
-    --card: 216 11% 18%;
+    --card: 30 10% 18%;
 
 
     --primary: 19, 34%, 40%;
     --primary-foreground: 210 40% 98%;
 
-    -border: 220 5% 18%;    
+    --border: 220 5% 18%; 
+    
+    /* color per section */
+    --tan: 34 20% 12%;
+    --sage: 147 12% 15%;
+    --clay: 22 15% 10%;
+    --sand: 42 15% 18%;
+    --moss: 76 12% 20%;
+    --linen: 30 15% 12%;
   }
+
 
   * {
     @apply border-border;
@@ -144,6 +160,36 @@
     background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
     background-clip: padding-box;
     border: 1px solid transparent;
+  }
+
+  .bg-hero {
+    background-color: hsl(var(--tan));
+    color: hsl(var(--foreground));
+  }
+
+  .bg-about {
+    background-color: hsl(var(--sage));
+    color: hsl(var(--foreground));
+  }
+
+  .bg-skills {
+    background-color: hsl(var(--sand));
+    color: hsl(var(--foreground));
+  }
+
+  .bg-projects {
+    background-color: hsl(var(--clay));
+    color: hsl(var(--foreground));
+  }
+
+  .bg-organization {
+    background-color: hsl(var(--moss));
+    color: hsl(var(--foreground));
+  }
+
+  .bg-contact {
+    background-color: hsl(var(--linen));
+    color: hsl(var(--foreground));
   }
 }
 
