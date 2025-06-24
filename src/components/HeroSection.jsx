@@ -51,7 +51,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero" className="bg-hero relative min-h-screen flex items-center">
+    <section id="hero" className="bg-hero relative min-h-screen flex items-center snap-start">
       <div className="container z-10 flex flex-col md:flex-row justify-between items-center">
         {/* Left Side */}
         <div className="space-y-4 w-fit">

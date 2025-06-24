@@ -44,7 +44,7 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="bg-skills py-52 px-6 relative bg-secondary/30">
+    <section id="skills" className="bg-skills py-52 px-6 relative bg-secondary/30 min-h-screen snap-start">
       <div className="container mx-auto max-w-5xl">
         {/* Section title */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">

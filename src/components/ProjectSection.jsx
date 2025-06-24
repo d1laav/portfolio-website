@@ -38,7 +38,7 @@ export const ProjectSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="bg-projects py-52 px-4 relative z-10">
+    <section id="projects" className="bg-projects py-52 px-4 relative z-10 min-h-screen snap-start">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Featured <span className="text-primary">Projects</span>

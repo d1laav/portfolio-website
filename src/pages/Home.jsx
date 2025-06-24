@@ -7,12 +7,16 @@ import { ProjectSection } from "../components/ProjectSection";
 import { ContactSection } from "../components/ContactSection";
 import { OrganizationSection } from "../components/OrganizationSection";
 import { SectionTransition } from "../components/SectionTransition";
+import ScrollProgressBar from "../components/ScrollProgressBar";
 
 export const Home = () => {
 
     return (
 
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+
+        {/* Scroll Progress Bar */}
+        <ScrollProgressBar />
 
         {/* Theme Toggle */}
         <ThemeToggle />
@@ -23,7 +27,8 @@ export const Home = () => {
         {/* Hero Section */}
 
         {/* Main Content */}
-        <main>
+        <div className="scroll-smooth">
+            <main>
             <HeroSection />
             <SectionTransition from="tan" to="sage" />
             <AboutSection />
@@ -35,8 +40,8 @@ export const Home = () => {
             <OrganizationSection />
             <SectionTransition from="moss" to="linen" />
             <ContactSection />
-            {/* Add more sections here */}
-        </main>
+            </main>
+      </div>
 
         {/* Footer */}
     </div>
