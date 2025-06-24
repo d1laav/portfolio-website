@@ -23,11 +23,14 @@ const ScrollProgressBar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-[4px] z-[9999] bg-transparent">
+    <div className="fixed bottom-0 left-0 w-full h-[6px] z-[9999] bg-transparent">
       <div
         ref={progressRef}
-        className="h-full bg-primary transition-all duration-200 ease-out"
-        style={{ width: "0%" }}
+        className="h-full transition-all duration-300 ease-out rounded-tr-full rounded-br-full"
+        style={{
+          width: "0%",
+          background: "linear-gradient(to right, #5b9279, #3b715b)", // hijau soft
+        }}
       />
     </div>
   );

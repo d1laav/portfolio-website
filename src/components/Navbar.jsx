@@ -26,7 +26,7 @@ export const Navbar = () => {
     }, [])
     return (
         <nav className={cn("fixed w-full z-40 transition-all duration-300", 
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-sm" : "py-5")}>
+        isScrolled ? "py-3 bg-background/40 backdrop-blur-lg shadow-sm" : "py-5")}>
             <div className="container flex items-center justify-between">
                 <a href="#hero" className="text-xl font-bold text-primary">
                     <span className="relative z-10">

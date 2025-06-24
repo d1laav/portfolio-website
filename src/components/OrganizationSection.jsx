@@ -32,13 +32,13 @@ export const OrganizationSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <section id="organization" className="py-12 px-4 bg-background text-foreground">
+    <section id="organization" className="bg-organization py-52 px-4 bg-background text-foreground min-h-screen snap-start">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
           Organization <span className="text-primary">Timeline</span>
         </h2>
 
-        <div className="relative border-l-2 border-yellow-500 pl-3">
+        <div className="relative border-l-2 border-primary">
           {organizationData.map((item, index) => (
             <div
               key={index}
@@ -48,13 +48,13 @@ export const OrganizationSection = () => {
               {/* Bullet */}
               <div className="absolute -left-[8px] w-4 h-4 rounded-full border-2 bg-background border-yellow-400 z-10 flex items-center justify-center">
                 {activeIndex === index && (
-                  <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                 )}
               </div>
 
               {/* Content */}
               <div className="ml-3">
-                <p className="text-yellow-400 text-xs mb-0.5">{item.date}</p>
+                <p className="text-primary text-xs mb-0.5">{item.date}</p>
                 <p className="text-sm md:text-base font-medium leading-tight">{item.title}</p>
 
                 {activeIndex === index && (
