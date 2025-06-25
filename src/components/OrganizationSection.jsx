@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const organizationData = [
 	{
@@ -35,6 +35,19 @@ const organizationData = [
 
 export const OrganizationSection = () => {
 	const [activeIndex, setActiveIndex] = useState(null);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		// Fungsi untuk cek ukuran layar
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 768);
+		};
+
+		handleResize(); // Cek pertama kali saat mount
+		window.addEventListener("resize", handleResize);
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	return (
 		<section
@@ -56,6 +69,11 @@ export const OrganizationSection = () => {
 							<div
 								key={index}
 								className="relative w-40 md:w-56 shrink-0 text-center z-10 group"
+								onClick={() => {
+									if (isMobile) {
+										setActiveIndex(activeIndex === index ? null : index);
+									}
+								}}
 							>
 								{/* Logo */}
 								<img
@@ -91,8 +109,9 @@ export const OrganizationSection = () => {
                                     transition-all duration-300 ease-in-out
                                     z-20
                                     group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto
+                                    ${isMobile && activeIndex === index ? 'opacity-100 scale-100 pointer-events-auto' : ''}
                                 `}
-                                >
+								>
 									{item.desc}
 								</div>
 							</div>
