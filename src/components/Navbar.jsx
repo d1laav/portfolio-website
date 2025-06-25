@@ -12,6 +12,8 @@ const navItems = [
     {name: "Contact", href: "#contact"},
 ]
 
+const NAVBAR_HEIGHT = 72; // px, samakan dengan pt-[72px] di sidebar
+
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,6 +26,18 @@ export const Navbar = () => {
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
+
+    const handleNavClick = (e, href) => {
+        e.preventDefault();
+        setIsMobileMenuOpen(false);
+        const id = href.replace("#", "");
+        const el = document.getElementById(id);
+        if (el) {
+            const y = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+    };
+
     return (
         <nav className={cn("fixed w-full z-40 transition-all duration-300", 
         isScrolled ? "py-3 bg-background/40 backdrop-blur-lg shadow-sm" : "py-5")}>
@@ -81,7 +95,7 @@ export const Navbar = () => {
                                 key={key}
                                 href={item.href}
                                 className="text-foreground/80 hover:text-primary transition-colors duration-200 w-full text-center py-2"
-                                onClick={() => setIsMobileMenuOpen(false)}
+                                onClick={(e) => handleNavClick(e, item.href)}
                             >
                                 {item.name}
                             </a>
