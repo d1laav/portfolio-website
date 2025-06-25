@@ -88,10 +88,6 @@ const StyledWrapper = styled.div`
     color: hsl(var(--primary-foreground));
     transform: rotateX(-90deg) translateZ(24px);
   }
-
-  .button-icon:hover {
-    border-color: #8b4513;
-  }
 `;
 
 export default CubeButton;

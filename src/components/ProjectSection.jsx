@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, XIcon } from "lucide-react";
+import { ExternalLink, Figma, Github, XIcon } from "lucide-react";
 import GitHubButton from "@/components/GithubButton";
 import ProjectCard3D from "@/components/ProjectCard3D";
 
@@ -13,6 +13,7 @@ const projects = [
     tags: ["React", "Tailwind CSS"],
     github: "https://github.com/d1laav/tvonair-9.0",
     link: "https://tvonair.umn.ac.id/",
+    figma: "#"
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const projects = [
     tags: ["Laravel", "Bootstrap", "Tailwind CSS", "JavaScript", "MySQL"],
     github: "#",
     link: "https://tv.umn.ac.id/",
+    figma: "#"
   },
   {
     id: 3,
@@ -31,7 +33,18 @@ const projects = [
     tags: ["Android", "Kotlin", "Jetpack Compose", "Firebase"],
     github: "https://github.com/d1laav/Memoir_App",
     link: "#",
+    figma: "#"
   },
+  {
+    id: 4,
+    title: "Design UI - RS Permata Pamulang",
+    description: "A UI design project for RS Permata Pamulang, showcasing modern healthcare interface design.",
+    images: ["/projects/project4.1.png", "/projects/project4.2.png", "/projects/project4.3.png", "/projects/project4.4.png"],
+    tags: ["Figma", "UI/UX Design"],
+    github: "#",
+    link: "#",
+    figma: "https://www.figma.com/design/lRFeOALmDMZYxfRhRjzuv3/Project-TA?node-id=229-2964&t=FqoyCL4aHuKiESBk-0"
+  }
 ];
 
 export const ProjectSection = () => {
@@ -127,6 +140,11 @@ export const ProjectSection = () => {
                   {selectedProject.github !== "#" && (
                     <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       <Github />
+                    </a>
+                  )}
+                  {selectedProject.figma !== "#" && (
+                    <a href={selectedProject.figma} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      <Figma />
                     </a>
                   )}
                 </div>

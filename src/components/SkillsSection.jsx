@@ -15,7 +15,7 @@ const skills = [
   { name: "Firebase", level: "Advanced", icon: <Icon icon="simple-icons:firebase" className="w-6 h-6 text-amber-500" />, category: "backend" },
   { name: "PHP", level: "Intermediate", icon: <Icon icon="simple-icons:php" className="w-6 h-6 text-indigo-600" />, category: "backend" },
   { name: "Laravel", level: "Intermediate", icon: <Icon icon="simple-icons:laravel" className="w-6 h-6 text-red-500" />, category: "backend" },
-  { name: "SQL", level: "Intermediate", icon: <Icon icon="simple-icons:mysql" className="w-6 h-6 text-blue-600" />, category: "backend" },
+  { name: "MySQL", level: "Intermediate", icon: <Icon icon="simple-icons:mysql" className="w-6 h-6 text-blue-600" />, category: "backend" },
   { name: "Python", level: "Advanced", icon: <Icon icon="simple-icons:python" className="w-6 h-6 text-yellow-600" />, category: "backend" },
   { name: "Android Development", level: "Intermediate", icon: <Icon icon="simple-icons:android" className="w-6 h-6 text-green-600" />, category: "mobile" },
   { name: "Kotlin", level: "Intermediate", icon: <Icon icon="simple-icons:kotlin" className="w-6 h-6 text-purple-400" />, category: "mobile" },

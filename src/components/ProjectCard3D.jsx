@@ -66,7 +66,7 @@ export default function ProjectCard3D({ project, onClick }) {
 
       {/* Title */}
       <div className="p-4">
-        <h3 className="text-md font-semibold text-center text-foreground">
+        <h3 className="text-md font-medium text-center text-foreground">
           {project.title}
         </h3>
       </div>
