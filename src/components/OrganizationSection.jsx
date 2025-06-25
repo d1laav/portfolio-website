@@ -49,7 +49,7 @@ export const OrganizationSection = () => {
         <div className="overflow-x-auto">
           <div className="relative flex items-start space-x-12 w-max px-10 pb-20">
             {/* Full timeline line */}
-            <div className="absolute top-[78px] left-0 right-0 h-1 bg-primary z-0" />
+            <div className="absolute top-[78px] left-0 right-0 h-0.5 bg-primary z-0" />
 
             {organizationData.map((item, index) => (
               <div key={index} className="relative w-56 shrink-0 text-center z-10">
@@ -66,16 +66,13 @@ export const OrganizationSection = () => {
                     onClick={() => setActiveIndex(index === activeIndex ? null : index)}
                     className="w-4 h-4 bg-primary rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-115 transition"
                     >
-                    {/* Jika ingin efek inner bulatan saat aktif */}
-                    {activeIndex === index && (
                         <div className="w-2 h-2 bg-white rounded-full" />
-                    )}
                 </button>
 
                 </div>
 
                 {/* Text */}
-                <p className="text-xs text-primary">{item.date}</p>
+                <p className="text-sm text-primary">{item.date}</p>
                 <p className="text-sm font-medium">{item.title}</p>
 
                 {/* Description */}
