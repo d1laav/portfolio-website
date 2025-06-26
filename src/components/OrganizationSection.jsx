@@ -55,7 +55,7 @@ export const OrganizationSection = () => {
 			className="bg-organization py-24 md:py-52 px-2 md:px-4 text-foreground min-h-screen flex justify-center items-center snap-start"
 		>
 			<div className="max-w-7xl mx-auto w-full">
-				<h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+				<h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
 					Organization{" "}
 					<span className="text-primary">Experience</span>
 				</h2>
