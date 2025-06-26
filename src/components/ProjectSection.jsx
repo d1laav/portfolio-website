@@ -17,8 +17,8 @@ const projects = [
   },
   {
     id: 2,
-    title: "UMN TV Updating Website",
-    description: "A website to display current programs & latest articles from UMN TV.",
+    title: "UMN TV Website",
+    description: "Updating website to display current programs & latest articles from UMN TV.",
     images: ["/projects/project2.1.png", "/projects/project2.2.png", "/projects/project2.3.png"],
     tags: ["Laravel", "Bootstrap", "Tailwind CSS", "JavaScript", "MySQL"],
     github: "#",
