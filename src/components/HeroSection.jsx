@@ -30,6 +30,15 @@ export const HeroSection = () => {
     config: { tension: 170, friction: 20 },
   });
 
+  // Tambahkan transition untuk description
+  const descTransition = useTransition(descIndex, {
+    key: descIndex,
+    from: { opacity: 0, transform: "translateY(20px)" },
+    enter: { opacity: 1, transform: "translateY(0px)" },
+    leave: { opacity: 0, transform: "translateY(-20px)" },
+    config: { duration: 1 },
+  });
+
   const animateLoop = () => {
     ref.current.forEach(clearTimeout);
     ref.current = [];
@@ -86,12 +95,24 @@ export const HeroSection = () => {
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <p
-              className="text-lg md:text-xl text-justify text-muted-foreground flex-1 transition-all duration-300"
-              style={{ minHeight: "64px" }} // sesuai kebutuhan agar tidak ke geser
-            >
-              {descriptions[descIndex]}
-            </p>
+            <div className="flex-1 relative" style={{ minHeight: 64 }}>
+              {descTransition((style, i) => (
+                <animated.p
+                  key={i}
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    width: "100%",
+                    left: 0,
+                    top: 0,
+                    margin: 0,
+                  }}
+                  className="text-lg md:text-xl text-justify text-muted-foreground transition-all duration-300"
+                >
+                  {descriptions[i]}
+                </animated.p>
+              ))}
+            </div>
             <button
               aria-label="Next"
               onClick={handleNext}
