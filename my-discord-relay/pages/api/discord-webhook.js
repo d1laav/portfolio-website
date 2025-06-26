@@ -4,8 +4,6 @@ export default async function handler(req, res) {
   }
 
   const { name, email, message } = req.body;
-
-  // Ambil URL webhook dari environment variable
   const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 
   if (!DISCORD_WEBHOOK_URL) {

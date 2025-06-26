@@ -18,20 +18,13 @@ export const ContactSection = () => {
     return () => clearTimeout(timerRef.current);
   }, []);
 
-  const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1387664912041377934/rjW37EYbbtZIl7qjaDwqIJ4WFEk0OnBNDClgebxX193-P2P39Pb9z19P15fTO5rEm7MF"; // Ganti dengan webhook milikmu
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setOpen(false);
     clearTimeout(timerRef.current);
 
-    // Format pesan Discord
-    const discordPayload = {
-      content: `**New Contact Message**\n**Name:** ${form.name}\n**Email:** ${form.email}\n**Message:** ${form.message}`,
-    };
-
     try {
-      await fetch("https://ALAMAT_NEXTJS_KAMU/api/discord-webhook", {
+      await fetch("https://david-immanuel-portofolio.vercel.app/api/discord-webhook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
