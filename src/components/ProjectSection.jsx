@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Figma, Github, XIcon } from "lucide-react";
-import GithubButton from "@/components/GithubButton";
+import GitHubButton from "@/components/GithubButton";
 import ProjectCard3D from "@/components/ProjectCard3D";
 
 const projects = [
@@ -125,7 +125,9 @@ export const ProjectSection = () => {
 				</div>
 
 				<div className="text-center mt-12">
-					<GithubButton />
+					<a className="w-fit flex items-center mx-auto gap-2">
+						<GitHubButton />
+					</a>
 				</div>
 			</div>
 
