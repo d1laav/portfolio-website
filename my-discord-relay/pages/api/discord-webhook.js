@@ -19,8 +19,11 @@ export default async function handler(req, res) {
     body: JSON.stringify(discordPayload),
   });
 
+  const discordText = await discordRes.text();
+  console.log("Discord response:", discordRes.status, discordText); // Tambahkan ini untuk debug
+
   if (!discordRes.ok) {
-    return res.status(500).json({ error: "Failed to send to Discord" });
+    return res.status(500).json({ error: "Failed to send to Discord", detail: discordText });
   }
 
   res.status(200).json({ ok: true });

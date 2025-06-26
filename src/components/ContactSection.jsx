@@ -24,11 +24,17 @@ export const ContactSection = () => {
     clearTimeout(timerRef.current);
 
     try {
-      await fetch("https://david-immanuel-portofolio.vercel.app/api/discord-webhook", {
+      const res = await fetch("https://david-immanuel-portofolio.vercel.app/api/discord-webhook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+
+      if (!res.ok) {
+        const err = await res.json();
+        alert("Failed to send message: " + (err.error || "Unknown error"));
+        return;
+      }
 
       timerRef.current = window.setTimeout(() => {
         eventDateRef.current = new Date();
