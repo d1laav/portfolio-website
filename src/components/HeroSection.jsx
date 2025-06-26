@@ -102,7 +102,7 @@ export const HeroSection = () => {
             </button>
           </div>
 
-          <div className="flex justify-start opacity-0 p-2  animate-fade-in-delay-4">
+          <div className="flex justify-center md:justify-start opacity-0 p-2 animate-fade-in-delay-4 mt-6 md:mt-0">
             <ProjectButton />
           </div>
         </div>

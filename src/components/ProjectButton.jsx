@@ -12,52 +12,30 @@ const CVButton = () => {
 
 const StyledWrapper = styled.div`
 
-  .button {
+  a {
     position: relative;
-    overflow: hidden;
-    height: 3rem;
-    padding: 0 2rem;
-    border-radius: 1.5rem;
-    background: var(--primary);
-    background-size: 400%;
-    color: var(--primary-foreground);
-    border: none;
-    cursor: pointer;
+    display: inline-block;
+    padding: 8px 18px; /* Ukuran lebih kecil */
+    border: 2px solid #212121;
+    text-transform: uppercase;
+    color: #212121;
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: background 0.3s;
+    font-weight: 600;
+    font-size: 15px; /* Ukuran font lebih kecil */
+    background: transparent;
+    overflow: hidden;
+    transition: color 0.3s, background 0.3s;
+    border-radius: 6px;
   }
 
-  .button:hover::before {
-    transform: scaleX(1);
+  a:hover {
+    background: #212121;
+    color: #fff;
   }
 
-  .button-content {
+  a span {
     position: relative;
-    z-index: 0;
-  }
-
-  .button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    width: 100%;
-    height: inherit;
-    border-radius: inherit;
-    background: linear-gradient(
-      82.3deg,
-      rgba(181, 101, 29) 20.8%,
-      rgba(150, 75, 0) 94.3%
-    );
-    transition: all 0.475s;
-    z-index: -1;
+    z-index: 3;
   }
 `;
 
