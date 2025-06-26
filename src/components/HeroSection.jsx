@@ -86,8 +86,8 @@ export const HeroSection = () => {
             ))}
           </p>
 
-          <div className="relative max-w-2xl mx-auto mb-6 flex flex-col items-center md:items-start">
-            <div className="flex items-center w-full mb-4">
+          <div className="relative max-w-2xl mx-auto mb-2 flex flex-col items-center md:items-start">
+            <div className="flex items-center w-full">
               <button
                 aria-label="Previous"
                 onClick={handlePrev}
@@ -123,7 +123,7 @@ export const HeroSection = () => {
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
-            <div className="w-full flex justify-center md:justify-start mt-6">
+            <div className="w-full flex justify-center md:justify-start mt-2">
               <ProjectButton />
             </div>
           </div>
