@@ -43,4 +43,5 @@ const hookdeckConfig = {
   },
 };
 
-module.exports = hookdeckConfig;
+export default hookdeckConfig;
+// filepath: /Users/davidimmanuelresner/Documents/web-Project/hookdeck.config.js
