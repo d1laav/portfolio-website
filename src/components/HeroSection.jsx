@@ -86,45 +86,46 @@ export const HeroSection = () => {
             ))}
           </p>
 
-          <div className="relative max-w-2xl mx-auto mb-6 flex items-center">
-            <button
-              aria-label="Previous"
-              onClick={handlePrev}
-              className="p-2 rounded-full hover:bg-primary/10 transition-colors mr-2"
-              type="button"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <div className="flex-1 relative" style={{ minHeight: 64 }}>
-              {descTransition((style, i) => (
-                <animated.p
-                  key={i}
-                  style={{
-                    ...style,
-                    position: "absolute",
-                    width: "100%",
-                    left: 0,
-                    top: 0,
-                    margin: 0,
-                  }}
-                  className="text-lg md:text-xl text-justify text-muted-foreground transition-all duration-300"
-                >
-                  {descriptions[i]}
-                </animated.p>
-              ))}
+          <div className="relative max-w-2xl mx-auto mb-6 flex flex-col items-center md:items-start">
+            <div className="flex items-center w-full mb-4">
+              <button
+                aria-label="Previous"
+                onClick={handlePrev}
+                className="p-2 rounded-full hover:bg-primary/10 transition-colors mr-2"
+                type="button"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <div className="flex-1 relative min-h-[130px] md:min-h-[80px]">
+                {descTransition((style, i) => (
+                  <animated.p
+                    key={i}
+                    style={{
+                      ...style,
+                      position: "absolute",
+                      width: "100%",
+                      left: 0,
+                      top: 0,
+                      margin: 0,
+                    }}
+                    className="text-lg md:text-xl text-justify text-muted-foreground transition-all duration-300"
+                  >
+                    {descriptions[i]}
+                  </animated.p>
+                ))}
+              </div>
+              <button
+                aria-label="Next"
+                onClick={handleNext}
+                className="p-2 rounded-full hover:bg-primary/10 transition-colors ml-2"
+                type="button"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
             </div>
-            <button
-              aria-label="Next"
-              onClick={handleNext}
-              className="p-2 rounded-full hover:bg-primary/10 transition-colors ml-2"
-              type="button"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="flex justify-center md:justify-start opacity-0 p-2 animate-fade-in-delay-4 mt-6 md:mt-0">
-            <ProjectButton />
+            <div className="w-full flex justify-center md:justify-start mt-6">
+              <ProjectButton />
+            </div>
           </div>
         </div>
 

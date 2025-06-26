@@ -24,11 +24,23 @@ export const ContactSection = () => {
     clearTimeout(timerRef.current);
 
     try {
-      const res = await fetch("https://david-immanuel-portofolio.vercel.app/api/discord-webhook", {
+      const res = await fetch("https://discord.com/api/webhooks/1387717266149216337/4DdCufz9PdgqwxUjQJFjp7YBr07ZubVpR6rIiYcGpmwJVLnTipmwy5gDqXUxp5_Z9cwC", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          content: `**Name:** ${form.name}\n**Email:** ${form.email}\n**Message:** ${form.message}`,
+          embeds: [
+            {
+              title: "New Contact Form Submission",
+              description: `Name: ${form.name}\nEmail: ${form.email}\nMessage: ${form.message}`,
+              color: 0x00ff00, // Green color
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        }),
       });
+      
+      (console.log("Discord response:", form)); // Debugging line
 
       if (!res.ok) {
         const err = await res.json();
