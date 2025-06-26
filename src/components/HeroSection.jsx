@@ -88,7 +88,7 @@ export const HeroSection = () => {
             </button>
             <p
               className="text-lg md:text-xl text-justify text-muted-foreground flex-1 transition-all duration-300"
-              style={{ minHeight: "64px" }} // Atur sesuai kebutuhan agar tidak geser
+              style={{ minHeight: "64px" }} // sesuai kebutuhan agar tidak ke geser
             >
               {descriptions[descIndex]}
             </p>
@@ -102,7 +102,7 @@ export const HeroSection = () => {
             </button>
           </div>
 
-          <div className="flex justify-start opacity-0 animate-fade-in-delay-4">
+          <div className="flex justify-start opacity-0 p-2  animate-fade-in-delay-4">
             <ProjectButton />
           </div>
         </div>
