@@ -3,7 +3,7 @@ import { useTransition, animated } from "@react-spring/web";
 import Lottie from "lottie-react";
 import HeroAnimation from "@/assets/HeroAnimation.json";
 import ProjectButton from "@/components/ProjectButton.jsx";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 export const HeroSection = () => {
   const items = [
@@ -12,8 +12,15 @@ export const HeroSection = () => {
     { id: 3, text: " Immanuel", className: "text-gradient" },
   ];
 
+  const descriptions = [
+    "Experienced developer specializing in both front-end and back-end website development, ensuring responsive design and robust performance.",
+    "Proficient in mobile app development, creating attractive interfaces and smooth user experiences across platforms.",
+    "Enthusiastic about machine learning, eager to apply data-driven solutions to real-world challenges.",
+  ];
+
   const [visibleItems, setVisibleItems] = useState([]);
   const ref = useRef([]);
+  const [descIndex, setDescIndex] = useState(0);
 
   const transitions = useTransition(visibleItems, {
     keys: item => item.id,
@@ -36,12 +43,11 @@ export const HeroSection = () => {
       );
     });
 
-    // Reset after all items visible
     ref.current.push(
       setTimeout(() => {
         setVisibleItems([]);
-        animateLoop(); // Loop again
-      }, items.length * 400 + 8000) // Delay before reset
+        animateLoop();
+      }, items.length * 400 + 8000)
     );
   };
 
@@ -49,6 +55,14 @@ export const HeroSection = () => {
     animateLoop();
     return () => ref.current.forEach(clearTimeout);
   }, []);
+
+  // Handler for arrow buttons
+  const handlePrev = () => {
+    setDescIndex((prev) => (prev === 0 ? descriptions.length - 1 : prev - 1));
+  };
+  const handleNext = () => {
+    setDescIndex((prev) => (prev === descriptions.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <section id="hero" className="bg-hero relative min-h-screen flex items-center snap-start">
@@ -63,9 +77,30 @@ export const HeroSection = () => {
             ))}
           </p>
 
-          <p className="max-w-2xl text-lg md:text-xl text-justify text-muted-foreground mx-auto mb-6 opacity-0 animate-fade-in-delay-3">
-            Dedicated and knowledgeable developer specializing in website and mobile application development, with a growing interest in machine learning.
-          </p>
+          <div className="relative max-w-2xl mx-auto mb-6 flex items-center">
+            <button
+              aria-label="Previous"
+              onClick={handlePrev}
+              className="p-2 rounded-full hover:bg-primary/10 transition-colors mr-2"
+              type="button"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <p
+              className="text-lg md:text-xl text-justify text-muted-foreground flex-1 transition-all duration-300"
+              style={{ minHeight: "64px" }} // Atur sesuai kebutuhan agar tidak geser
+            >
+              {descriptions[descIndex]}
+            </p>
+            <button
+              aria-label="Next"
+              onClick={handleNext}
+              className="p-2 rounded-full hover:bg-primary/10 transition-colors ml-2"
+              type="button"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
 
           <div className="flex justify-start opacity-0 animate-fade-in-delay-4">
             <ProjectButton />

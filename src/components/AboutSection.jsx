@@ -15,7 +15,7 @@ export const AboutSection = () => {
                             Experienced Web Developer & Android Developer
                         </h3>
                         <p className="text-muted-foreground">
-                            I have experience working on both front-end and back-end web projects. 
+                            I have experience working on both front-end and back-end projects. 
                             I’ve built responsive, accessible websites, and developed features like user login, 
                             dashboards, and admin panels.
                         </p>
