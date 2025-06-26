@@ -8,19 +8,44 @@ export const ContactSection = () => {
   const [open, setOpen] = useState(false);
   const eventDateRef = useRef(new Date());
   const timerRef = useRef(0);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   useEffect(() => {
     return () => clearTimeout(timerRef.current);
   }, []);
 
-  const handleSubmit = (e) => {
+  const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1387664912041377934/rjW37EYbbtZIl7qjaDwqIJ4WFEk0OnBNDClgebxX193-P2P39Pb9z19P15fTO5rEm7MF"; // Ganti dengan webhook milikmu
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setOpen(false);
     clearTimeout(timerRef.current);
-    timerRef.current = window.setTimeout(() => {
-      eventDateRef.current = new Date();
-      setOpen(true);
-    }, 100);
+
+    // Format pesan Discord
+    const discordPayload = {
+      content: `**New Contact Message**\n**Name:** ${form.name}\n**Email:** ${form.email}\n**Message:** ${form.message}`,
+    };
+
+    try {
+      await fetch("https://ALAMAT_NEXTJS_KAMU/api/discord-webhook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      timerRef.current = window.setTimeout(() => {
+        eventDateRef.current = new Date();
+        setOpen(true);
+      }, 100);
+
+      setForm({ name: "", email: "", message: "" }); // Reset form
+    } catch (err) {
+      alert("Failed to send message.");
+    }
   };
 
   return (
@@ -124,6 +149,8 @@ export const ContactSection = () => {
                       id="name"
                       name="name"
                       required
+                      value={form.name}
+                      onChange={e => setForm({ ...form, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="David Immanuel..."
                     />
@@ -137,6 +164,8 @@ export const ContactSection = () => {
                       id="email"
                       name="email"
                       required
+                      value={form.email}
+                      onChange={e => setForm({ ...form, email: e.target.value })}
                       className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="john@gmail.com"
                     />
@@ -149,6 +178,8 @@ export const ContactSection = () => {
                       id="message"
                       name="message"
                       required
+                      value={form.message}
+                      onChange={e => setForm({ ...form, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                       placeholder="Hello, I'm interested in collaborating on a project..."
                       rows={4}
