@@ -123,7 +123,7 @@ export const HeroSection = () => {
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
-            <div className="w-full flex justify-center md:justify-start mt-2">
+            <div className="w-full flex justify-center md:justify-start mt-10 md:pl-6">
               <ProjectButton />
             </div>
           </div>

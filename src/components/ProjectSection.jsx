@@ -92,15 +92,14 @@ export const ProjectSection = () => {
 	return (
 		<section
 			id="projects"
-			className="bg-projects py-52 px-4 relative z-10 min-h-screen snap-start"
+			className="bg-projects py-16 md:py-52 px-2 md:px-4 relative z-10 min-h-screen snap-start"
 		>
 			<div className="container mx-auto max-w-4xl">
-				<h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-					Featured{" "}
-					<span className="text-primary">Projects</span>
+				<h2 className="text-2xl md:text-4xl font-bold mb-10 text-center">
+					Featured <span className="text-primary">Projects</span>
 				</h2>
 
-				<p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+				<p className="text-center text-muted-foreground mb-8 md:mb-12 max-w-xl md:max-w-2xl mx-auto text-sm md:text-base">
 					Dive into a collection of my favorite digital creations — websites
 					and mobile apps that blend functionality and design to deliver
 					seamless user experiences.
@@ -108,26 +107,25 @@ export const ProjectSection = () => {
 
 				<div
 					className={`
-    grid gap-10
-    grid-cols-1
-    ${projects.length === 2 ? "md:grid-cols-2" : ""}
-    ${projects.length >= 3 ? "md:grid-cols-3" : ""}
-    justify-items-center
-  `}
+        grid gap-6 md:gap-10
+        grid-cols-1
+        ${projects.length === 2 ? "md:grid-cols-2" : ""}
+        ${projects.length >= 3 ? "md:grid-cols-3" : ""}
+        justify-items-center
+      `}
 				>
 					{projects.map((project) => (
-						<ProjectCard3D
-							key={project.id}
-							project={project}
-							onClick={setSelectedProject}
-						/>
+						<div key={project.id} className="w-full max-w-xs md:max-w-sm">
+							<ProjectCard3D
+								project={project}
+								onClick={setSelectedProject}
+							/>
+						</div>
 					))}
 				</div>
 
-				<div className="text-center mt-12">
-					<a className="w-fit flex items-center mx-auto gap-2">
-						<GitHubButton />
-					</a>
+				<div className="text-center mt-8 md:mt-12">
+					<GitHubButton />
 				</div>
 			</div>
 
