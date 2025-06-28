@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { ArrowRight, Repeat } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const categories = ['all', 'frontend', 'backend', 'mobile', 'tools'];
+const categories = ['all', 'frontend', 'backend', 'mobile', 'tools', 'data science'];
 
 const skills = [
   { name: "HTML/CSS", level: "Advanced", icon: <Icon icon="simple-icons:html5" className="w-6 h-6 text-orange-600" />, category: "frontend" },
@@ -24,6 +24,10 @@ const skills = [
   { name: "Git/GitHub", level: "Advanced", icon: <Icon icon="simple-icons:github" className="w-6 h-6 text-[hsl(var(--foreground))]" />, category: "tools" },
   { name: "VSCode", level: "Advanced", icon: <Icon icon="simple-icons:visualstudiocode" className="w-6 h-6 text-blue-500" />, category: "tools" },
   { name: "Figma", level: "Intermediate", icon: <Icon icon="simple-icons:figma" className="w-6 h-6 text-pink-500" />, category: "tools" },
+  { name: "NumPy", level: "Beginner", icon: <Icon icon="simple-icons:numpy" className="w-6 h-6 text-blue-400" />, category: "data science" },
+  { name: "Pandas", level: "Beginner", icon: <Icon icon="simple-icons:pandas" className="w-6 h-6 text-purple-600" />, category: "data science" },
+  { name: "Matplotlib", level: "Beginner", icon: <Icon icon="simple-icons:matplotlib" className="w-6 h-6 text-orange-500" />, category: "data science" },
+  { name: "Scikit-learn", level: "Beginner", icon: <Icon icon="simple-icons:scikitlearn" className="w-6 h-6 text-yellow-600" />, category: "data science" },
 ];
 
 export const SkillsSection = () => {

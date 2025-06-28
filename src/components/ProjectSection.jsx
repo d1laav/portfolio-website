@@ -84,6 +84,22 @@ const projects = [
 		link: "https://david-immanuel-portofolio.vercel.app/",
 		figma: "#",
 	},
+	{
+		id: 6,
+		title: "True/Fake News Classifier",
+		description:
+			"A machine learning project that classifies news articles as true or fake using Python and various libraries.",
+		images: [
+			"/projects/project6.1.png",
+			"/projects/project6.2.png",
+			"/projects/project6.3.png",
+			"/projects/project6.4.png",
+		],
+		tags: ["Python", "Machine Learning", "Pandas", "Scikit-learn", "NumPy", "Matplotlib"],
+		link: "UTS2024_IF540L_Kelas_H_Kelompok_7.html",
+		github: "#",
+		figma: "#",
+	}
 ];
 
 export const ProjectSection = () => {
@@ -107,12 +123,12 @@ export const ProjectSection = () => {
 
 				<div
 					className={`
-        grid gap-6 md:gap-10
-        grid-cols-1
-        ${projects.length === 2 ? "md:grid-cols-2" : ""}
-        ${projects.length >= 3 ? "md:grid-cols-3" : ""}
-        justify-items-center
-      `}
+    grid gap-6 md:gap-10
+    grid-cols-1
+    ${projects.length === 2 ? "md:grid-cols-2" : ""}
+    ${projects.length >= 3 ? "md:grid-cols-3" : ""}
+    justify-items-center
+  `}
 				>
 					{projects.map((project) => (
 						<div key={project.id} className="w-full max-w-xs md:max-w-sm">
@@ -124,7 +140,8 @@ export const ProjectSection = () => {
 					))}
 				</div>
 
-				<div className="text-center mt-8 md:mt-12">
+				{/* Centered GitHub Button */}
+				<div className="flex justify-center mt-8 md:mt-12">
 					<GitHubButton />
 				</div>
 			</div>
