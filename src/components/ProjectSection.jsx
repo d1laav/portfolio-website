@@ -86,7 +86,7 @@ const projects = [
 	},
 	{
 		id: 6,
-		title: "True/Fake News Classifier",
+		title: "Fake News Detection with SVM Algorithm",
 		description:
 			"A machine learning project that classifies news articles as true or fake using Python and various libraries.",
 		images: [
@@ -123,12 +123,12 @@ export const ProjectSection = () => {
 
 				<div
 					className={`
-    grid gap-6 md:gap-10
-    grid-cols-1
-    ${projects.length === 2 ? "md:grid-cols-2" : ""}
-    ${projects.length >= 3 ? "md:grid-cols-3" : ""}
-    justify-items-center
-  `}
+						grid gap-6 md:gap-10
+						grid-cols-1
+						${projects.length === 2 ? "md:grid-cols-2" : ""}
+						${projects.length >= 3 ? "md:grid-cols-3" : ""}
+						justify-items-center
+					`}
 				>
 					{projects.map((project) => (
 						<div key={project.id} className="w-full max-w-xs md:max-w-sm">
