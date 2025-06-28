@@ -1,12 +1,39 @@
-# React + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This portfolio website is built using **React JS** and **Vite** to showcase projects, skills, and experiences in an interactive and modern way.
 
-Currently, two official plugins are available:
+## Features
+- Showing a list of projects with images, descriptions, and related links.
+- Skills section with categories and icons.
+- Interactive animations using Framer Motion and React Spring.
+- Responsive design with Tailwind CSS.
+- Modal pop-up project details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technology Used
+- [React JS](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Spring](https://www.react-spring.dev/)
+- [Iconify](https://icon-sets.iconify.design/)
 
-## Expanding the ESLint configuration
+## How to Run
+1. Clone this repository: 
+``` 
+git clone <repo-url> 
+```
+2. Go to the project folder: 
+``` 
+web-Project cd 
+```
+3. Install dependencies: 
+``` 
+npm install 
+```
+4. Run the development server: 
+``` 
+npm run dev 
+```
+5. Open in browser: [http://localhost:5173](http://localhost:5173)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
