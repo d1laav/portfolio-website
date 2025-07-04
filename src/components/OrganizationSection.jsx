@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const organizationData = [
 	{
@@ -34,34 +34,79 @@ const organizationData = [
 ];
 
 export const OrganizationSection = () => {
-	const [activeIndex, setActiveIndex] = useState(null);
-	const [isMobile, setIsMobile] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
+    const scrollRef = useRef(null);
 
-	useEffect(() => {
-		// Fungsi untuk cek ukuran layar
-		const handleResize = () => {
-			setIsMobile(window.innerWidth < 768);
-		};
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-		handleResize(); // Cek pertama kali saat mount
-		window.addEventListener("resize", handleResize);
+    // Drag to scroll logic
+    useEffect(() => {
+        const slider = scrollRef.current;
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
+        if (!slider) return;
 
-	return (
-		<section
-			id="organization"
-			className="bg-organization py-24 md:py-52 px-2 md:px-4 text-foreground min-h-screen flex justify-center items-center snap-start"
-		>
-			<div className="max-w-7xl mx-auto w-full">
-				<h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
-					Organization{" "}
-					<span className="text-primary">Experience</span>
-				</h2>
+        const mouseDownHandler = (e) => {
+            isDown = true;
+            slider.classList.add("cursor-grabbing");
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        };
+        const mouseLeaveHandler = () => {
+            isDown = false;
+            slider.classList.remove("cursor-grabbing");
+        };
+        const mouseUpHandler = () => {
+            isDown = false;
+            slider.classList.remove("cursor-grabbing");
+        };
+        const mouseMoveHandler = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5; // scroll speed
+            slider.scrollLeft = scrollLeft - walk;
+        };
 
-				<div className="overflow-x-auto">
-					<div className="relative flex items-start space-x-6 md:space-x-12 w-max px-4 md:px-10 pb-16 md:pb-20">
+        slider.addEventListener("mousedown", mouseDownHandler);
+        slider.addEventListener("mouseleave", mouseLeaveHandler);
+        slider.addEventListener("mouseup", mouseUpHandler);
+        slider.addEventListener("mousemove", mouseMoveHandler);
+
+        return () => {
+            slider.removeEventListener("mousedown", mouseDownHandler);
+            slider.removeEventListener("mouseleave", mouseLeaveHandler);
+            slider.removeEventListener("mouseup", mouseUpHandler);
+            slider.removeEventListener("mousemove", mouseMoveHandler);
+        };
+    }, []);
+
+    return (
+        <section
+            id="organization"
+            className="bg-organization py-24 md:py-52 px-2 md:px-4 text-foreground min-h-screen flex justify-center items-center snap-start"
+        >
+            <div className="max-w-7xl mx-auto w-full">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
+                    Organization{" "}
+                    <span className="text-primary">Experience</span>
+                </h2>
+
+                <div
+                    ref={scrollRef}
+                    className="overflow-x-auto scrollbar-hide cursor-grab select-none"
+                >
+                    <div className="relative flex items-start space-x-6 md:space-x-12 w-max px-4 md:px-10 pb-16 md:pb-20">
 						{/* Full timeline line */}
 						<div className="absolute top-[70px] md:top-[94px] left-0 right-0 h-0.5 bg-primary z-0" />
 
